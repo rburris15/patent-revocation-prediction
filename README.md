@@ -1,4 +1,4 @@
-# Project Name
+# Patent Revocation Prediction
 
 ## Overview
 This project is designed for processing, analyzing, and extracting insights from EPO data. It includes modules for exploratory data analysis (EDA), preprocessing, and feature selection, as well as utilities for interacting with EPO (European Patent Office) data. The project is structured to facilitate reproducible and scalable data workflows.
@@ -69,13 +69,7 @@ Ensure you have the following installed:
 - **Execute main pipeline**: `python main.py`
 
 ## Configuration
-Settings can be modified in `config.yaml` to adjust preprocessing, feature selection, and model parameters.
-
-## Contributing
-If you'd like to contribute, feel free to fork this repository, make changes, and submit a pull request.
-
-## License
-[MIT License](LICENSE) or specify the applicable license.
+Settings can be modified in `config.yaml` to adjust paths for reading and writing.
 
 ## Contact
 For questions or issues, please reach out via GitHub issues.
