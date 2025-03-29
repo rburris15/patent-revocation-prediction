@@ -5,35 +5,35 @@ This project is designed for processing, analyzing, and extracting insights from
 
 ## Repository Structure
 ```
-|   EDA.py                    # Exploratory Data Analysis script
-|   main.py                   # Main execution script
-|   preprocessing.py          # Data preprocessing pipeline
-|   setup.py                  # Setup script for dependencies
-|
-+---data
-|   |   BOA_database_for_exercise_from_2020.json  # Raw data file
-|   |
-|   \---processed
-|           encoded_data.xlsx    # Preprocessed data output
-|
-+---reference materials         # Supporting documents
-|       example_BoA decision.pdf
-|       example_BoA_web.url
-|       IP Data Exercise-FOR CANDIDATE-SENT - SHORT.pdf
-|       Json to Excel.ipynb
-|
-\---src                        # Source code directory
-    |   config.yaml             # Configuration settings
-    |   config_loader.py        # Configuration file loader
-    |   __init__.py
-    |
-    +---epo_utils               # European Patent Office utilities
-    |   |   data_loader.py       # Loads and processes data
+│   ├── 1_EDA.py                                   # Script to visualize and explore raw data
+│   ├── 2a_topfeat_preprocessing.py            
+│   ├── 2b_Target_Encoding_Preprocess.py           # processes raw data for modeling
+│   ├── 3_main.py                                  # primary script for training and comparing model performance
+│   ├── README.md  
+│   ├── setup.py  
+│  
+├── data/  
+│   ├── BOA_database_for_exercise_from_2020.json  #raw data
+│   ├── processed/                                # Processed data output for main modeling script
+│  
+├── metrics/                                      # Metric outputs to compare model performance
+├── models/                                       # Saved models 
+├── output/                                       # Export location for key findings
+├── reference_materials/                          # All original source materials for the projectg
+└── src/                                          # source code folder for all stored functions and metadata
+    ├── config.yaml  
+    ├── config_loader.py  
+    ├── __init__.py  
+    ├── epo_utils/  
+    ├── your_project.egg-info/    
+    └── __pycache__/  
+        ├── config_loader.cpython-311.pyc  
+        ├── __init__.cpython-310.pyc  
+        ├── __init__.cpython-311.pyc  
     |   |   epo_search.py        # Search utilities for EPO data
     |   |   feature_selection.py # Feature selection logic
     |   |   preprocessing.py     # Data preprocessing utilities
     |   |   summary_stats.py     # Generates summary statistics
-    |   |   test.py              # Unit tests
     |   |   __init__.py
     |
     +---your_project.egg-info   # Package metadata
@@ -45,7 +45,7 @@ This project is designed for processing, analyzing, and extracting insights from
 ### Prerequisites
 Ensure you have the following installed:
 - Python 3.10+
-- Required dependencies (specified in `setup.py` or a `requirements.txt` file)
+- Required dependencies (specified in `setup.py` and `requirements.txt` files)
 
 ### Steps
 1. Clone the repository:
