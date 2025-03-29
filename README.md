@@ -45,7 +45,7 @@ This project is designed for processing, analyzing, and extracting insights from
 ### Prerequisites
 Ensure you have the following installed:
 - Python 3.10+
-- Required dependencies (specified in `setup.py` or a `requirements.txt` file)
+- Required dependencies (specified in `setup.py` and `requirements.txt` files)
 
 ### Steps
 1. Clone the repository:
