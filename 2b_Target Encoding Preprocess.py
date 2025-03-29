@@ -27,7 +27,7 @@ export_path= 'output\\' #save for use later on additional outputs
 export_file = os.path.join(export_path, 'dataset_description_full.xlsx') 
 
 # Export the DataFrame to the file
-summary.to_excel(export_file, index=False)
+summary.to_excel(export_file, index=True)
 
 # %%
 """From this table and EDA findings, the data needs further refining before modelling.
@@ -135,7 +135,7 @@ export_path= 'output\\' #save for use later on additional outputs
 export_file = os.path.join(export_path, 'correlation_matrix.xlsx') 
 
 # Export the DataFrame to the file
-summary.to_excel(export_file, index=False)
+summary.to_excel(export_file, index=True)
 #%% check keywords for overlap with target information - may be reported AFTER case outcome is determined and contain revocation status
 """Keywords seem to have a high correlation with both opponents and decisions so it is likely redundant information. we will drop for modelling"""
 df['Keywords'].value_counts()
@@ -158,7 +158,7 @@ export_path= 'output\\' #save for use later on additional outputs
 export_file = os.path.join(export_path, 'dataset_description_encoded_data.xlsx') 
 
 # Export the DataFrame to the file
-summary.to_excel(export_file, index=False)
+summary.to_excel(export_file, index=True)
 
 # %% Export processed data using path configuration
 export_path = 'data\\processed' #repo location for processed data
@@ -167,7 +167,7 @@ export_path = 'data\\processed' #repo location for processed data
 export_file = os.path.join(export_path, "encoded_data_target_encoding.xlsx")  
 
 # Export the DataFrame to the file
-df_encoded.to_excel(export_file, index=False)  
+df_encoded.to_excel(export_file, index=True)  
 
 print(f"Exported file to: {export_file}")
 # %%

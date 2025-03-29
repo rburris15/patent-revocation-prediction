@@ -53,7 +53,7 @@ export_path= 'output\\' #save for use later on additional outputs
 export_file = os.path.join(export_path, 'Patent Proprietors.xlsx') 
 
 # Export the DataFrame to the file
-topprop.to_excel(export_file, index=False)
+topprop.to_excel(export_file, index=True)
 #%% Keywords
 from collections import Counter
 
@@ -70,7 +70,7 @@ outcomes=df["Order status"].value_counts()
 outcomes.plot(kind="bar", title="Case Order Status Distribution")
 export_file = os.path.join(export_path, 'Case Outcomes.xlsx') 
 # Export the DataFrame to the file
-topprop.to_excel(export_file, index=False)
+topprop.to_excel(export_file, index=True)
 #%% Decision Types
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
@@ -117,28 +117,29 @@ def chi_square_test(df, categorical_columns, target_column):
 categorical_columns = ['IPC pharma', 'IPCs', 'Language', 'Patent Proprietor', 'Headword', 'Keywords', 'Opponents']  # Modify based on your dataset
 target_column = 'patent revoked'
 
-# Run Chi-Square test
+#%% Run Chi-Square test
 p_values = chi_square_test(df, categorical_columns, target_column)
 
-# Convert the p-values to a DataFrame for easy manipulation
+#%% Convert the p-values to a DataFrame for easy manipulation
 p_values_df = pd.DataFrame(list(p_values.items()), columns=['Feature', 'p_value'])
 
-# Filter significant features (p-value < 0.05)
+#%% Filter significant features (p-value < 0.05)
 significant_p_values = p_values_df[p_values_df['p_value'] < 0.05]
 
-# Print the significant features and their p-values
+#%% Print the significant features and their p-values
 print("Significant Features (p-value < 0.05):")
 print(significant_p_values)
 
-# Plot the p-values for significant features
+#%% Plot the p-values for significant features
 plt.figure(figsize=(10, 6))
 sns.barplot(x='p_value', y='Feature', data=significant_p_values, palette='viridis')
 plt.title("Significant Features with Chi-Square Test p-values")
 plt.xlabel("p-value")
 plt.ylabel("Feature")
 plt.show()
-# %% numeric correlation
-
+#%% numeric correlation
+df.columns
+#%%
 # Select only numeric columns
 numeric_columns = df.select_dtypes(include=['int64', 'float64'])
 
