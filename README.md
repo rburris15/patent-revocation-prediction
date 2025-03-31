@@ -5,22 +5,21 @@ This project is designed for processing, analyzing, and extracting insights from
 
 ## Repository Structure
 ```
-│   ├── 1_EDA.py                                   # Script to visualize and explore raw data
-│   ├── 2a_topfeat_preprocessing.py            
-│   ├── 2b_Target_Encoding_Preprocess.py           # processes raw data for modeling
-│   ├── 3_main.py                                  # primary script for training and comparing model performance
+│   ├── 1_EDA.py                                   # Script to visualize and explore raw data          
+│   ├── 2_Target_Encoding_Preprocess.py            # Processes raw data for modeling
+│   ├── 3_main.py                                  # Primary script for training and comparing model performance
 │   ├── README.md  
 │   ├── setup.py  
 │  
 ├── data/  
-│   ├── BOA_database_for_exercise_from_2020.json  #raw data
+│   ├── BOA_database_for_exercise_from_2020.json  # Raw data
 │   ├── processed/                                # Processed data output for main modeling script
 │  
 ├── metrics/                                      # Metric outputs to compare model performance
 ├── models/                                       # Saved models 
 ├── output/                                       # Export location for key findings
 ├── reference_materials/                          # All original source materials for the projectg
-└── src/                                          # source code folder for all stored functions and metadata
+└── src/                                          # Source code folder for all stored functions and metadata
     ├── config.yaml  
     ├── config_loader.py  
     ├── __init__.py  
@@ -64,12 +63,12 @@ Ensure you have the following installed:
    ```
 
 ## Usage
-- **Run EDA**: `python EDA.py`
-- **Run preprocessing**: `python preprocessing.py`
-- **Execute main pipeline**: `python main.py`
+- **Run EDA**: `1_EDA.py`
+- **Run preprocessing**: `2_preprocessing.py`
+- **Execute main modelling pipeline**: `3_main.py`
 
 ## Configuration
-Settings can be modified in `config.yaml` to adjust paths for reading and writing.
+Settings can be modified in `config.yaml` to adjust paths for reading and writing
 
 ## Contact
 For questions or issues, please reach out via GitHub issues.
