@@ -154,9 +154,6 @@ plt.figure(figsize=(10, 8))
 # %% view top categorical values for EDA
 from src.epo_utils.preprocessing import get_top_N_cat_values
 top=get_top_N_cat_values(df,categorical_columns=categorical_columns, N=5)
-#%% make df from top
-top=pd.DataFrame(top)
-export_file = os.path.join(export_path, 'Top 5 Cat Values.xlsx') 
-#%% Export the DataFrame to the file
-top.to_excel(export_file, index=True)
+
+top
 # %%

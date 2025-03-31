@@ -116,14 +116,25 @@ df_encoded.info()
 #%% check correlation of new dataset
 # Select numeric columns 
 numeric_columns = df_encoded.select_dtypes(include=['int64', 'float64'])
+#%% Plot the heatmap
+import seaborn as sns
 
 # Compute the correlation matrix
 correlation_matrix = numeric_columns.corr()
 
-# Plot the heatmap
-import seaborn as sns
-plt.figure(figsize=(10, 8))
-sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)
+# Generate a mask for the upper triangle
+mask = np.triu(np.ones_like(correlation_matrix, dtype=bool))
+
+# Set up the matplotlib figure
+f, ax = plt.subplots(figsize=(12, 10))
+
+# Generate a custom diverging colormap
+cmap = sns.diverging_palette(230, 20, as_cmap=True)
+
+# Draw the heatmap with the mask and correct aspect ratio
+sns.heatmap(correlation_matrix, mask=mask, cmap=cmap, vmax=.3, center=0,
+            square=True, linewidths=.5, cbar_kws={"shrink": .5})
+
 plt.title('Correlation Matrix for Numeric and Encoded Columns')
 plt.show()
 #%%
@@ -135,7 +146,7 @@ export_path= 'output\\' #save for use later on additional outputs
 export_file = os.path.join(export_path, 'correlation_matrix.xlsx') 
 
 # Export the DataFrame to the file
-summary.to_excel(export_file, index=True)
+correlation_matrix.to_excel(export_file, index=True)
 #%% check keywords for overlap with target information - may be reported AFTER case outcome is determined and contain revocation status
 """Keywords seem to have a high correlation with both opponents and decisions so it is likely redundant information. we will drop for modelling"""
 df['Keywords'].value_counts()
@@ -170,4 +181,6 @@ export_file = os.path.join(export_path, "encoded_data_target_encoding.xlsx")
 df_encoded.to_excel(export_file, index=True)  
 
 print(f"Exported file to: {export_file}")
+# %%
+df_encoded['patent revoked'].value_counts()
 # %%
