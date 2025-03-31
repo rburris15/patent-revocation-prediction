@@ -49,7 +49,7 @@ def get_top_N_cat_values(df, categorical_columns, N=10):
     return top_values_dict
 
 
-
+#not used in current preprocessing script but was explored
 def multi_hot_encode(df, categorical_columns, top_values_dict):
     """Encodes the top N values from top_values_dict into binary columns."""
     
